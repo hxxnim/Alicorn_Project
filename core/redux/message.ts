@@ -3,32 +3,29 @@ import createAsyncSaga, {
   asyncActionCreator,
   createAsyncAction,
 } from "@/../utils/reduxUtils";
-import { GetUserNamePayload } from "@/../constance/message";
+import { getUserNamePayload } from "@/../constance/message";
 import { takeEvery } from "redux-saga/effects";
 
-const prefix = "MESSAGE";
+const prefix = "message";
 
-// action 타입 정의
 const SET_SEARCH_USER_NAME = `${prefix}/SET_SEARCH_USER_NAME`;
 
-// action 함수 정의
-export const setSearchUserName = createAction(SET_SEARCH_USER_NAME)<GetUserNamePayload>();
+export const setSearchUserName = createAction(SET_SEARCH_USER_NAME,)<getUserNamePayload>();
 
-// saga 비동기 함수
 // export const getUserNameSaga = createAsyncSaga(getUserName, );
 
 interface MessageState {
-  search: GetUserNamePayload;
+  search: getUserNamePayload;
 }
 
-const InitialState: MessageState = {
+const initialState: MessageState = {
   search: {
     name: '',
   },
 };
 
 export default function messageReducer(
-  state: MessageState = InitialState,
+  state: MessageState = initialState,
   action: ReturnType<typeof setSearchUserName>
 ) {
   switch (action.type) {
