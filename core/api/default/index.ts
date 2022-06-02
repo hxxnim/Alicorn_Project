@@ -6,7 +6,7 @@ import { useModal } from '@/../utils/hooks/modal';
 export const getRequest = () => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'https://munchkin.entrydsm.hs.kr',
+    baseURL: 'http://localhost:3003',
     withCredentials: true,
     headers: {
       withCredentials: true,
@@ -21,7 +21,7 @@ export const getRequestWithAccessToken = (
 ) => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'https://munchkin.entrydsm.hs.kr',
+    baseURL: 'http://localhost:3003',
     headers: {
       Authorization: `Bearer ${token}`,
       withCredentials: true,
