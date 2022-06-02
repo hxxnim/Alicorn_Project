@@ -1,3 +1,3 @@
-export interface GetUserNamePayload {
+export interface getUserNamePayload {
   name: string;
 }

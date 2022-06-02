@@ -1,10 +1,10 @@
-// import { all } from 'redux-saga/effects';
-// import messageSaga from './message';
+import { all } from 'redux-saga/effects';
+import { signinSaga } from './signin';
 
-// export default function* rootSaga() {
-//   yield all([
-//     messageSaga(), 
-//   ]);
-// }
+export default function* rootSaga() {
+  yield all([
+    signinSaga(), 
+  ]);
+}
 
 export {}
