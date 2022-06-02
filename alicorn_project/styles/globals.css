@@ -1,0 +1,49 @@
+* {
+  font-family: 'Nanum Gothic', sans-serif;
+  font-display: fallback;
+}
+
+html,
+body,
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  padding: 0!important;
+  min-height: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  word-break: keep-all;
+  word-wrap: break-word;
+  margin: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+  background: #fff;
+  line-height: 1.5em;
+}
+
+a {
+  color: inherit;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  text-align: center;
+}
+
+input, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+p, a, h1, h2, h3, h4, h5, h6, ul, li, tr, td, 
+input, select, textarea, button, 
+figure, blockquote, span {
+  font-size: 14px;
+  transform: skew(-0.1deg);
+}
