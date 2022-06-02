@@ -7,7 +7,7 @@ export const IS_LOGIN = "auth/IS_LOGIN" as const;
 export const setAccessToken = createAction(ACCESS_TOKEN)<string>();
 export const setIsLogin = createAction(IS_LOGIN)<boolean>();
 
-export type authActionType =
+type authActionType =
   | ReturnType<typeof setAccessToken>
   | ReturnType<typeof setIsLogin>;
 

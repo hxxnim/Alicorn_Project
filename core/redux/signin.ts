@@ -1,12 +1,15 @@
 import { createAction } from "typesafe-actions";
 import { error } from "@/../constance/error";
-import { signinRequest } from "@/../constance/signin";
+import { signinRequest } from "@/../constance/types";
 import { call, put, takeLatest } from "redux-saga/effects";
 import { IS_LOGIN } from "./auth";
+import { refreshTokenApi, signinApi } from "../api/signin";
+import { responseGenerator, signinResponse } from "@/../constance/types";
 
 const prefix = "signin";
 
-const SET_ID = `${prefix}/SET_ID`;
+const ERROR = `${prefix}/ERROR`
+const SET_EMAIL = `${prefix}/SET_EMAIL`;
 const SET_PASSWORD = `${prefix}/SET_PASSWORD`;
 const SIGNIN = `${prefix}/SIGNIN`;
 const SIGNIN_SUCCESS = `${prefix}/${SIGNIN}_SUCCESS`;
@@ -15,7 +18,7 @@ const REFRESH_TOKEN = `${prefix}/REFRESH_TOKEN`;
 const REFRESH_TOKEN_SUCCESS = `${REFRESH_TOKEN}_SUCCESS`;
 const REFRESH_TOKEN_FAILURE = `${REFRESH_TOKEN}_FAILURE`;
 
-export const setId = createAction(SET_ID)<string>();
+export const setEmail = createAction(SET_EMAIL)<string>();
 export const setPassword = createAction(SET_PASSWORD)<string>();
 export const signin = createAction(SIGNIN)<signinRequest>();
 export const signinSuccess = createAction(SIGNIN_SUCCESS)<string>();
@@ -26,12 +29,20 @@ export const refreshToken = createAction(REFRESH_TOKEN)<{
 export const refreshTokenSuccess = createAction(REFRESH_TOKEN_SUCCESS)();
 export const refreshTokenFailure = createAction(REFRESH_TOKEN_FAILURE)<error>();
 
+type signinActionType =
+  | ReturnType<typeof setEmail>
+  | ReturnType<typeof setPassword>
+  | ReturnType<typeof signinSuccess>
+  | ReturnType<typeof signinFailure>;
+
+export { SIGNIN, REFRESH_TOKEN }
+
 export const refreshTokenSaga = function* (action: any) {
   const FAILURE = `${REFRESH_TOKEN}_FAILURE`;
   const SUCCESS = `${REFRESH_TOKEN}_SUCCESS`;
   const callback = action.payload.callback;
   try {
-    const response: { access_token: string } = yield call(refreshTokenApi);
+    const response: signinResponse = yield call(refreshTokenApi);
     yield put({
       type: SUCCESS,
     });
@@ -60,7 +71,7 @@ export const siginRequestSaga = function* (action: any) {
   const FAILURE = `${SIGNIN}_FAILURE`;
 
   try {
-    const response = yield call(signinApi, action.payload);
+    const response: responseGenerator = yield call(signinApi, action.payload);
     yield put({
       type: SUCCESS,
       payload: response ? response.data : null,
@@ -87,16 +98,10 @@ export const siginRequestSaga = function* (action: any) {
   }
 };
 
-type signinActionType =
-  | ReturnType<typeof setId>
-  | ReturnType<typeof setPassword>
-  | ReturnType<typeof signinSuccess>
-  | ReturnType<typeof signinFailure>;
-
 interface SigninState {
   id: string;
   password: string;
-  error: error;
+  error: any | error;
 }
 
 const initialState: SigninState = {
@@ -114,7 +119,13 @@ export default function signinReducer(
   action: signinActionType
 ) {
   switch (action.type) {
-    case SET_ID: {
+    case ERROR: {
+      return {
+        ...state,
+        error: action.payload,
+      };
+    }
+    case SET_EMAIL: {
       return {
         ...state,
         id: action.payload,

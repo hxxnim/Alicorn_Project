@@ -6,7 +6,7 @@ export const MODAL_OFF = "modal/MODAL_OFF";
 export const setModalOn = createAction(MODAL_ON)<string>();
 export const setModalOff = createAction(MODAL_OFF)<string>();
 
-export type modalActionType =
+type modalActionType =
   | ReturnType<typeof setModalOff>
   | ReturnType<typeof setModalOn>;
 

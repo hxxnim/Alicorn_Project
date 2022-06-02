@@ -3,7 +3,7 @@ import createAsyncSaga, {
   asyncActionCreator,
   createAsyncAction,
 } from "@/../utils/reduxUtils";
-import { getUserNamePayload } from "@/../constance/message";
+import { getUserNamePayload } from "@/../constance/types";
 import { takeEvery } from "redux-saga/effects";
 
 const prefix = "message";
