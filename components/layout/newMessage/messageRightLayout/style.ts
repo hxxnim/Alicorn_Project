@@ -4,12 +4,16 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 68%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 32px 56px 0;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 32px;
 
   .contact-user {
     margin-bottom: 4px;
@@ -38,6 +42,7 @@ export const Wrapper = styled.div`
       position: relative;
       align-items: center;
       display: flex;
+      width: 100%;
     }
 
     .i {
@@ -83,3 +88,26 @@ export const Wrapper = styled.div`
     }
   }
 `;  
+
+export const MappingWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 32px;
+  flex: 1;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+		width: 2px;
+		background: none;
+	}
+	&::-webkit-scrollbar-thumb {
+	  background: ${COLOR.color_scroll};
+    border-radius: 6px;
+	}
+	&::-webkit-scrollbar-track {
+	  background: none;
+	}
+`;
