@@ -1,6 +1,8 @@
 enum uri {
-  message = '',
-  signin = '/user'
+  signin = '/users/signin',
+  signup = '/users/signup',
+  search = '/users/search',
+  room_list = '/rooms/roomList'
 }
 
 export default uri;
