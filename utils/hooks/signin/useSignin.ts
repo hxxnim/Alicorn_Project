@@ -6,6 +6,7 @@ import {
   setEmail,
   setPassword,
   signin,
+  reset
 } from '@/../core/redux/signin';
 import { IS_LOGIN } from '@/../core/redux/auth';
 import { signinRequest } from '@/../constance/types';
@@ -28,6 +29,9 @@ const useSignin = () => {
     },
     refreshToken: (callback: () => void) => {
       dispatch(refreshToken({ callback }));
+    },
+    reset: () => {
+      dispatch(reset());
     },
   };
   return {
