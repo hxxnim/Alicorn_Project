@@ -1,5 +1,5 @@
 import * as S from "./style";
-import { Button } from "@/../components/common";
+import { Button } from "@/../components/common/button";
 
 const MessageSearchLayout = () => {
   return (

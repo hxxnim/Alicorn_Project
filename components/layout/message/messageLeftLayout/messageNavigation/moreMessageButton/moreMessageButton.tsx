@@ -1,7 +1,7 @@
 import * as S from "./style";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "@/../components/common";
+import { Button } from "@/../components/common/button";
 
 const MoreMessageButton = () => {
   return (

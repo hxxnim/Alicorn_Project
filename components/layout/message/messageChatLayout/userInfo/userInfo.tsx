@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import * as S from "./style";
-import Banner from "@/../components/common/Banner";
+import Banner from "@/../components/common/banner";
 
 const UserInfo = () => {
   const [isFriend, setIsFriend] = useState(false);
