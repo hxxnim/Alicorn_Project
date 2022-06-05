@@ -1,8 +1,8 @@
 import { createAction } from "typesafe-actions";
 import { error } from "@/../constance/error";
 
-export const ACCESS_TOKEN = "auth/ACCESS_TOKEN" as const;
-export const IS_LOGIN = "auth/IS_LOGIN" as const;
+export const ACCESS_TOKEN = "auth/ACCESS_TOKEN";
+export const IS_LOGIN = "auth/IS_LOGIN";
 
 export const setAccessToken = createAction(ACCESS_TOKEN)<string>();
 export const setIsLogin = createAction(IS_LOGIN)<boolean>();
@@ -12,13 +12,16 @@ type authActionType =
   | ReturnType<typeof setIsLogin>;
 
 interface AuthState {
-  accessToken: string;
   isLogin: boolean;
+  accessToken: string;
   error: error;
 }
 
 const initState: AuthState = {
-  isLogin: localStorage.getItem("access_token") ? true : false,
+  isLogin:
+    typeof window !== "undefined" && localStorage.getItem("access_token")
+      ? true
+      : false,
   accessToken: "",
   error: {
     status: 0,

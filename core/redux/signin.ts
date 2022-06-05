@@ -8,7 +8,7 @@ import { responseGenerator, signinResponse } from "@/../constance/types";
 
 const prefix = "signin";
 
-const ERROR = `${prefix}/ERROR`
+const ERROR = `${prefix}/ERROR`;
 const SET_EMAIL = `${prefix}/SET_EMAIL`;
 const SET_PASSWORD = `${prefix}/SET_PASSWORD`;
 const SIGNIN = `${prefix}/SIGNIN`;
@@ -17,6 +17,7 @@ const SIGNIN_FAILURE = `${prefix}/${SIGNIN}_FAILURE`;
 const REFRESH_TOKEN = `${prefix}/REFRESH_TOKEN`;
 const REFRESH_TOKEN_SUCCESS = `${REFRESH_TOKEN}_SUCCESS`;
 const REFRESH_TOKEN_FAILURE = `${REFRESH_TOKEN}_FAILURE`;
+const RESET = `${prefix}/RESET`;
 
 export const setEmail = createAction(SET_EMAIL)<string>();
 export const setPassword = createAction(SET_PASSWORD)<string>();
@@ -28,6 +29,7 @@ export const refreshToken = createAction(REFRESH_TOKEN)<{
 }>();
 export const refreshTokenSuccess = createAction(REFRESH_TOKEN_SUCCESS)();
 export const refreshTokenFailure = createAction(REFRESH_TOKEN_FAILURE)<error>();
+export const reset = createAction(RESET)();
 
 type signinActionType =
   | ReturnType<typeof setEmail>
@@ -99,13 +101,13 @@ export const siginRequestSaga = function* (action: any) {
 };
 
 interface SigninState {
-  id: string;
-  password: string;
-  error: any | error;
+  email: string | any;
+  password: string | any;
+  error: error | any;
 }
 
 const initialState: SigninState = {
-  id: "",
+  email: "",
   password: "",
   error: {
     type: "",
@@ -128,7 +130,7 @@ export default function signinReducer(
     case SET_EMAIL: {
       return {
         ...state,
-        id: action.payload,
+        email: action.payload,
       };
     }
     case SET_PASSWORD: {
@@ -146,6 +148,12 @@ export default function signinReducer(
       return {
         ...state,
         error: action.payload,
+      };
+    }
+    case RESET: {
+      return {
+        ...state,
+        ...initialState,
       };
     }
     default:
