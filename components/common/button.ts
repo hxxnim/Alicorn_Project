@@ -64,4 +64,46 @@ export const Button = styled.button`
       color: ${COLOR.color_blue_strong};
     }
   }
+  &.login__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.75rem;
+    width: 82px;
+    height: 32px;
+    background-color: ${COLOR.color_blue_strong};
+    border: 1px solid ${COLOR.color_blue_strong};
+    border-radius: 30px;
+    color: ${COLOR.color_default_background};
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity .1s ease,
+    background-color .1s ease,color .1s ease;
+
+    &:hover {
+      background-color: #344aff;
+      border: 1px solid #344aff;
+    }
+  }
+  &.create-account__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.75rem;
+    width: 100px;
+    height: 40px;
+    background-color: ${COLOR.color_blue_strong};
+    border: 1px solid ${COLOR.color_blue_strong};
+    border-radius: 30px;
+    color: ${COLOR.color_default_background};
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity .1s ease,
+    background-color .1s ease,color .1s ease;
+
+    &:hover {
+      background-color: #344aff;
+      border: 1px solid #344aff;
+    }
+  }
 `;
