@@ -1,11 +1,11 @@
-export interface MessageView {
+export interface PreviewUserInfoDummy {
   profile: string;
   name: string;
   time: string;
   description: string;
 }
 
-export const messageView: MessageView[] = [
+export const previewUserInfoDummy: PreviewUserInfoDummy[] = [
   {
     profile:
       "https://image.rocketpunch.com/images/user/user.png?s=80x80&t=cover",

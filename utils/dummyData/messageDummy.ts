@@ -1,11 +1,11 @@
-export interface PreviewUserInfo {
+export interface MessageDummy {
   profile: string;
   name: string;
   time: string;
   description: string;
 }
 
-export const perviewUserInfo: PreviewUserInfo[] = [
+export const messageDummy: MessageDummy[] = [
   {
     profile:
       "https://image.rocketpunch.com/images/user/user.png?s=80x80&t=cover",
@@ -97,12 +97,3 @@ export const perviewUserInfo: PreviewUserInfo[] = [
     description: "I love psy I love you I love you I love you I love you",
   },
 ];
-
-export const limitLength = (text: string) => {
-  const MAX_LENGTH = 22;
-
-  if (text.length > MAX_LENGTH) {
-    return text.substring(0, MAX_LENGTH) + "..."
-  } 
-  return text;
-};
