@@ -90,12 +90,14 @@ const messageRightLayout = ({ socket, chatId }: Props) => {
         {inputValue
           ? searchState.state.searchUser.users.map((value) => {
               return (
-                <UserMappingResult
-                  key={value.id}
-                  createNewSocketRoom={createNewSocketRoom}
-                  name={value.name}
-                  id={value.id}
-                />
+                <>
+                  <UserMappingResult
+                    key={value.id}
+                    createNewSocketRoom={createNewSocketRoom}
+                    name={value.name}
+                    id={value.id}
+                  />
+                </>
               );
             })
           : null}

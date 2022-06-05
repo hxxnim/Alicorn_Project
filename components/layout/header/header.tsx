@@ -46,7 +46,9 @@ const Header = () => {
           </S.MainLogo>
           <S.MainMenu>
             {categoryMenu.map((value) => (
-              <a key={`${value.name}_menu`}>{value.name}</a>
+              <>
+                <a key={`${value.name}_menu`}>{value.name}</a>
+              </>
             ))}
             <div className="main-divider" />
             <div id="main-menu-dropdown">
@@ -57,12 +59,14 @@ const Header = () => {
               <div className="ui vertical" />
             </div>
             {buttonMenu.map((value) => (
-              <HeaderProfile
-                key={`${value.name}_buttonMenu`}
-                buttonName={value.name}
-                isLogin={state.isLogin}
-                buttonClickHandler={buttonClickHandler}
-              />
+              <>
+                <HeaderProfile
+                  key={`${value.name}_buttonMenu`}
+                  buttonName={value.name}
+                  isLogin={state.isLogin}
+                  buttonClickHandler={buttonClickHandler}
+                />
+              </>
             ))}
           </S.MainMenu>
         </S.Wrapper>

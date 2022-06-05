@@ -34,9 +34,9 @@ const MessageContactUser = () => {
                   </S.TopMessageInfo>
                   <S.BottomMessageInfo>
                     <span className="description">
-                      {value.messages.slice(-1).map((msg) => {
-                        return messageLengthLimit(msg.content);
-                      })}
+                      {value.messages
+                        .slice(-1)
+                        .map((msg) => messageLengthLimit(msg.content))}
                     </span>
                   </S.BottomMessageInfo>
                 </S.UserMessage>
