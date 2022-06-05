@@ -7,6 +7,7 @@ module.exports = {
     "eslint-disable-next-line @next/next/no-css-tags": "off",
     "@next/next/no-img-element": "off",
     "react/no-children-prop": "off",
+    "react-hooks/rules-of-hooks": "off",
     indent: "off",
   },
 };
