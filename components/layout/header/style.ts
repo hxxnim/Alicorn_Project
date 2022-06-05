@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   box-shadow: 0 1px 2px 0 rgb(40 50 60 / 6%);
   margin: 0;
-  z-index: 1000;
+  z-index: 99;
   position: fixed;
   top: 0;
   right: auto;

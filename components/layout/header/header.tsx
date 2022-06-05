@@ -1,27 +1,36 @@
 import * as S from "./style";
-import React, { useState } from "react";
 import HeaderProfile from "./headerProfile/headerProfile";
+import { useModal } from "@/../utils/hooks/modal";
+import { useAuth } from "@/../utils/hooks/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMagnifyingGlass,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { categoryMenu, buttonMenu } from "@/../utils/menuList";
+import Link from "next/link";
 
 const Header = () => {
-  const [isLogin, setIsLogin] = useState(false);
+  const modalState = useModal();
+  const { state } = useAuth();
+
+  const buttonClickHandler = () => {
+    modalState.setState.setModalOn("signin");
+  };
 
   return (
     <>
       <S.Container>
         <S.Wrapper>
           <S.MainLogo>
-            <a>
-              <img
-                src="https://static.rocketpunch.com/images/rocketpunch_logo.svg"
-                alt="RocketPunch"
-              />
-            </a>
+            <Link href="/">
+              <a>
+                <img
+                  src="https://static.rocketpunch.com/images/rocketpunch_logo.svg"
+                  alt="RocketPunch"
+                />
+              </a>
+            </Link>
             <div className="item">
               <div className="search">
                 <FontAwesomeIcon icon={faMagnifyingGlass} className="i" />
@@ -51,8 +60,8 @@ const Header = () => {
               <HeaderProfile
                 key={`${value.name}_buttonMenu`}
                 buttonName={value.name}
-                isLogin={isLogin}
-                setIsLogin={setIsLogin}
+                isLogin={state.isLogin}
+                buttonClickHandler={buttonClickHandler}
               />
             ))}
           </S.MainMenu>

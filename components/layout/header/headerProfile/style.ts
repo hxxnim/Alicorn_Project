@@ -72,6 +72,7 @@ export const SigninBox = styled.div`
 `;
 
 export const ProfileMenu = styled.div`
+  height: 100%;
   display: flex;
   margin-left: auto !important;
   margin: 0;
@@ -87,6 +88,7 @@ export const ProfileMenu = styled.div`
   }
 
   .item {
+    height: 100%;
     align-items: center;
     position: relative;
     vertical-align: middle;

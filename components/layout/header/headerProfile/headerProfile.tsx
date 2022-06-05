@@ -1,25 +1,24 @@
-import { FC } from "react";
 import * as S from "./style";
+import Link from "next/link";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MessageOutline from "@/../assets/message-outline.png";
-import Notification from "@/../assets/notification.png";
+import { message_outline, notification } from "@/../assets/header";
+import { clearStorage } from "@/../utils/token";
 
 interface Props {
   isLogin: boolean;
   buttonName: string;
-  setIsLogin: (val: boolean) => void;
+  buttonClickHandler: () => void;
 }
 
-const HeaderProfile: FC<Props> = ({ isLogin, buttonName, setIsLogin }) => {
+const HeaderProfile = ({ isLogin, buttonName, buttonClickHandler }: Props) => {
   const signinHandler = () => {
-    setIsLogin(true);
-    alert("로그인!");
+    buttonClickHandler();
   };
 
   const signoutHandler = () => {
-    setIsLogin(false);
-    alert("로그아웃!");
+    window.confirm("로그아웃 하시겠습니까?") ? clearStorage() : null;
+    window.location.reload();
   };
 
   return (
@@ -27,21 +26,23 @@ const HeaderProfile: FC<Props> = ({ isLogin, buttonName, setIsLogin }) => {
       {!isLogin ? (
         <S.SigninBox>
           <a onClick={signinHandler}>{buttonName}</a>
-          <a>{buttonName.includes("무료") ? "무료 가입" : "무료 가입"}</a>
+          <Link href="/signup">
+            <a>{buttonName.includes("무료") ? "무료 가입" : "무료 가입"}</a>
+          </Link>
         </S.SigninBox>
       ) : (
         <S.ProfileMenu>
           <div className="ui right item">
             <img
               className="message-icon"
-              src={MessageOutline.src}
+              src={message_outline.src}
               alt="Message"
             />
           </div>
           <div className="ui right item">
             <img
               className="notification-icon"
-              src={Notification.src}
+              src={notification.src}
               alt="Notification"
             />
           </div>
@@ -55,7 +56,7 @@ const HeaderProfile: FC<Props> = ({ isLogin, buttonName, setIsLogin }) => {
               src="https://image.rocketpunch.com/images/user/user.png?s=80x80&t=cover"
               alt="default_profile"
             />
-            <span className="text">전규현</span>
+            <span className="text">{localStorage.getItem("user_name")}</span>
             <FontAwesomeIcon icon={faCaretDown} className="i" />
           </div>
         </S.ProfileMenu>
