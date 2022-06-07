@@ -11,7 +11,7 @@ export const authorization = (token: string) => ({
 export const getRequest = () => {
   const request = axios.create({
     timeout: 10000,
-    baseURL: 'http://15.165.30.52:3003',
+    baseURL: 'http://52.79.53.22:3003',
   });
   return request;
 };

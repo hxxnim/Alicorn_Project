@@ -8,7 +8,7 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import UserMappingResult from "./userMappingResult/userMappingResult";
 
-const SOCKET_SERVER_URL = "15.165.30.52:3003";
+const SOCKET_SERVER_URL = "52.79.53.22:3003";
 
 interface Props {
   socket: any;

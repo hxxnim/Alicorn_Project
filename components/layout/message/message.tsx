@@ -7,7 +7,7 @@ import { useChat } from "@/../utils/hooks/chat";
 import MessageLeftLayout from "./messageLeftLayout/messageLefttLayout";
 import MessageChatLayout from "./messageChatLayout/messageChatLayout";
 
-const SOCKET_SERVER_URL = "15.165.30.52:3003";
+const SOCKET_SERVER_URL = "52.79.53.22:3003";
 
 const Message = ({ chat_id }: { chat_id?: number }) => {
   const [socket, setSocket] = useState<any>(null);
