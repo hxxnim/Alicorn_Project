@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { useSockets } from "@/../core/context/socket.context";
 import MessageViewLayout from "./messageViewLayout/messageViewLayout";
-import MessageSearchLayout from "./messageSendLayout/messageSendLayout";
+import MessageSendLayout from "./messageSendLayout/messageSendLayout";
 
 const MessageMain = () => {
   return (
     <Container>
       <MessageViewLayout />
-      <MessageSearchLayout />
+      <MessageSendLayout />
     </Container>
   );
 };
