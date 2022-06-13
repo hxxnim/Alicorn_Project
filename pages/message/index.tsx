@@ -1,13 +1,13 @@
 import Header from "@/../components/layout/header/header";
-import Message from "@/../components/layout/message/message";
+import Chat from "@/../components/layout/chat/chat";
 
-const message = () => {
+const Message = () => {
   return (
     <>
       <Header />
-      <Message chat_id={undefined} />
+      <Chat room_id={undefined} />
     </>
   );
 };
 
-export default message;
+export default Message;

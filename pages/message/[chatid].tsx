@@ -1,20 +1,13 @@
 import Header from "@/../components/layout/header/header";
-import Message from "@/../components/layout/message/message";
-import { GetServerSidePropsContext } from "next";
+import Chat from "@/../components/layout/chat/chat";
 
-export function getServerSideProps(context: GetServerSidePropsContext) {
-  return {
-    props: { chat_id: context.query.roomid },
-  };
-}
-
-const message = ({ chat_id }: { chat_id: number }) => {
+const Message = ({ room_id }: { room_id: string }) => {
   return (
     <>
       <Header />
-      <Message chat_id={chat_id} />
+      <Chat room_id={room_id} />
     </>
   );
 };
 
-export default message;
+export default Message;
