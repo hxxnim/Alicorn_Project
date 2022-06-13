@@ -47,7 +47,7 @@ const Header = () => {
           <S.MainMenu>
             {categoryMenu.map((value) => (
               <>
-                <a key={`${value.name}_menu`}>{value.name}</a>
+                <a key={`${value.id}_menu`}>{value.name}</a>
               </>
             ))}
             <div className="main-divider" />
