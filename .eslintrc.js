@@ -8,6 +8,7 @@ module.exports = {
     "@next/next/no-img-element": "off",
     "react/no-children-prop": "off",
     "react-hooks/rules-of-hooks": "off",
+    "import/no-anonymous-default-export": "off",
     indent: "off",
   },
 };
