@@ -13,7 +13,7 @@ const MessageContactUser = () => {
         <S.Wrapper>
           {state.roomList.rooms.map((value) => (
             <>
-              <S.UserMessageInfo>
+              <S.UserMessageInfo key={`${value.name}_user`}>
                 <S.UserProfile>
                   <img
                     className="user_profile"
